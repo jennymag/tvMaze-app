@@ -16,14 +16,6 @@ export interface SearchBarProps {
     onSubmit: (query: string) => void;
 }
 
-
-//favorites
-export interface Favorites {
-    name: string;
-    id: number;
-    image?: string;
-}
-
 //TvShows
 export interface TvShow {
     score: number;

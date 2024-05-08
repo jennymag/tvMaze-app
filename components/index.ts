@@ -5,6 +5,7 @@ import Search from "./search/Search";
 import Card from "./shared/Card";
 import ShowDetails from "./search/ShowDetails";
 import SearchBar from "./shared/SearchBar"
+import Favorites from "./favorites/Favorites";
 
 export {
     CustomButton,
@@ -13,6 +14,7 @@ export {
     Search,
     Card,
     ShowDetails,
-    SearchBar
+    SearchBar,
+    Favorites
 
 }

@@ -1,7 +1,6 @@
 "use client";
-
-import { useEffect, useState } from "react";
-import { CustomButton, Card, SearchBar } from "..";
+import { useState } from "react";
+import { Card, SearchBar } from "..";
 import { fetchTVShows } from "@/utils";
 import { TvShow } from "@/types";
 import { useFavorites } from "@/utils/favoriteUtils";
@@ -18,21 +17,17 @@ const Search = () => {
       setShows([]);
     }
   };
-  useEffect(() => {
-    console.log(favoritesList);
-  }, [favoritesList]);
 
   return (
     <>
       <SearchBar onSubmit={handleSearch} />
-
       <div className="flex flex-wrap justify-center mx-16">
         {shows.map((show, index) => (
           <Card
             key={`${show.show.id}-${index}`}
             data={show}
             isFavorite={favoritesList.some(
-              (favorite) => favorite.id === show.show.id
+              (favorite) => favorite.show.id === show.show.id
             )}
             onToggleFavorite={() => toggleFavorite(show.show.id, shows)}
           />

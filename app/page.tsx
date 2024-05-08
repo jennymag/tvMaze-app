@@ -8,7 +8,6 @@ export default function Home() {
         <p>Search to explore TV shows</p>
         <Search />
       </div>
-  
     </main>
   );
 }

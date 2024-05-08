@@ -4,17 +4,15 @@ import Footer from "./layout/Footer";
 import Search from "./search/Search";
 import Card from "./shared/Card";
 import ShowDetails from "./search/ShowDetails";
-
-
-
+import SearchBar from "./shared/SearchBar"
 
 export {
-
     CustomButton,
     Navbar,
     Footer,
     Search,
     Card,
-    ShowDetails
+    ShowDetails,
+    SearchBar
 
 }

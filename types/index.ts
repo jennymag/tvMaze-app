@@ -1,6 +1,6 @@
 import { MouseEventHandler } from "react"
 
-//Shared 
+//shared 
 export interface CustomButtonProps {
     title: string
     containerStyles?: string
@@ -12,7 +12,73 @@ export interface CardProps {
     data: TvShow;
 }
 
+export interface SearchBarProps {
+    onSubmit: (query: string) => void;
+}
+
+
+//favorites
+export interface Favorites {
+    name: string;
+    id: number;
+    image?: string;
+}
+
 //TvShows
+export interface TvShow {
+    score: number;
+    show: {
+        id: number;
+        url: string;
+        name: string;
+        type: string;
+        language: string;
+        genres: string[];
+        status: string;
+        runtime: number;
+        averageRuntime: number;
+        premiered: string;
+        ended: string | null;
+        officialSite: string;
+        schedule: Schedule;
+        rating: Rating;
+        weight: number;
+        webChannel: null | any;
+        dvdCountry: null | any;
+        externals: Externals;
+        image: Image;
+        summary: string;
+        updated: number;
+        _links: Links;
+    };
+}
+
+export interface Show {
+    id: number;
+    url: string;
+    name: string;
+    type: string;
+    language: string;
+    genres: string[];
+    status: string;
+    runtime: number;
+    averageRuntime: number;
+    premiered: string;
+    ended: string;
+    officialSite: string | null;
+    schedule: Schedule;
+    rating: Rating;
+    weight: number;
+    network: Network;
+    webChannel: null;
+    dvdCountry: null;
+    externals: Externals;
+    image: Image;
+    summary: string;
+    updated: number;
+    _links: Links;
+}
+
 export interface Schedule {
     time: string;
     days: string[];
@@ -58,58 +124,4 @@ export interface Network {
     name: string;
     country: Country;
     officialSite: string | null;
-  }
-
-export interface TvShow {
-    score: number;
-    show: {
-        id: number;
-        url: string;
-        name: string;
-        type: string;
-        language: string;
-        genres: string[];
-        status: string;
-        runtime: number;
-        averageRuntime: number;
-        premiered: string;
-        ended: string | null;
-        officialSite: string;
-        schedule: Schedule;
-        rating: Rating;
-        weight: number;
-        webChannel: null | any; 
-        dvdCountry: null | any; 
-        externals: Externals;
-        image: Image;
-        summary: string;
-        updated: number;
-        _links: Links;
-    };
 }
-
-export interface Show {
-    id: number;
-    url: string;
-    name: string;
-    type: string;
-    language: string;
-    genres: string[];
-    status: string;
-    runtime: number;
-    averageRuntime: number;
-    premiered: string;
-    ended: string;
-    officialSite: string | null;
-    schedule: Schedule;
-    rating: Rating;
-    weight: number;
-    network: Network;
-    webChannel: null;
-    dvdCountry: null;
-    externals: Externals;
-    image: Image;
-    summary: string;
-    updated: number;
-    _links: Links;
-  }

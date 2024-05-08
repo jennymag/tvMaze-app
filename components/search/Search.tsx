@@ -1,51 +1,45 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { CustomButton, Card } from "..";
+import { useEffect, useState } from "react";
+import { CustomButton, Card, SearchBar } from "..";
 import { fetchTVShows } from "@/utils";
 import { TvShow } from "@/types";
-
+import { useFavorites } from "@/utils/favoriteUtils";
 
 const Search = () => {
-    const [shows, setShows] = useState<TvShow[]>([]);
+  const [shows, setShows] = useState<TvShow[]>([]);
+  const { favoritesList, toggleFavorite } = useFavorites();
 
-    const handleSearch = async (query: string) => {
-        const data: TvShow[] | null = await fetchTVShows(query); 
-        if (data && data.length > 0) {
-            setShows(data);
-        } else {
-            setShows([]);
-        }
-    };
-
-    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const form = event.currentTarget;
-        const formData = new FormData(form);
-        const query = formData.get('query') as string;
-        await handleSearch(query);
-    };
-
+  const handleSearch = async (query: string) => {
+    const data: TvShow[] | null = await fetchTVShows(query);
+    if (data && data.length > 0) {
+      setShows(data);
+    } else {
+      setShows([]);
+    }
+  };
+  useEffect(() => {
+    console.log(favoritesList);
+  }, [favoritesList]);
 
   return (
     <>
-            <form className="my-8" onSubmit={handleSubmit}>
-                <input type="text" className="rounded-full p-2 px-5" name="query" />
-                <CustomButton 
-                title="Search" 
-                btnType="submit"
-                containerStyles="text-white rounded-full py-2 bg-slate-700 mx-2 min-w-[130px]" />
-            </form>
-       
-            <div className="flex flex-wrap justify-center mx-16">
-                {shows.map((show, index) => (
-                    <Card key={`${show.show.id}-${index}`} data={show}/>
-                    
-                ))}
-            </div>
-       </>
-  
-  )
-}
+      <SearchBar onSubmit={handleSearch} />
+
+      <div className="flex flex-wrap justify-center mx-16">
+        {shows.map((show, index) => (
+          <Card
+            key={`${show.show.id}-${index}`}
+            data={show}
+            isFavorite={favoritesList.some(
+              (favorite) => favorite.id === show.show.id
+            )}
+            onToggleFavorite={() => toggleFavorite(show.show.id, shows)}
+          />
+        ))}
+      </div>
+    </>
+  );
+};
 
 export default Search;

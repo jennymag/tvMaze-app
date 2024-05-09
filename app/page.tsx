@@ -1,6 +1,6 @@
 import { Search } from "@/components";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main className="overflow-hidden z-1">
       <div className="flex flex-col items-center my-16">

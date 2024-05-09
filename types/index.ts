@@ -35,13 +35,9 @@ export interface TvShow {
         schedule: Schedule;
         rating: Rating;
         weight: number;
-        webChannel: null | any;
-        dvdCountry: null | any;
-        externals: Externals;
         image: Image;
         summary: string;
         updated: number;
-        _links: Links;
     };
 }
 
@@ -61,14 +57,9 @@ export interface Show {
     schedule: Schedule;
     rating: Rating;
     weight: number;
-    network: Network;
-    webChannel: null;
-    dvdCountry: null;
-    externals: Externals;
     image: Image;
     summary: string;
     updated: number;
-    _links: Links;
 }
 
 export interface Schedule {
@@ -91,29 +82,21 @@ export interface Image {
     original: string;
 }
 
-export interface Links {
-    self: {
-        href: string;
-    };
-    previousepisode: {
-        href: string;
-        name: string;
-    };
-    nextepisode: {
-        href: string;
-        name: string;
-    };
-}
 
-export interface Externals {
-    tvrage: number;
-    thetvdb: number;
-    imdb: string;
-}
 
-export interface Network {
+//Upcoming
+export interface Episode {
     id: number;
     name: string;
-    country: Country;
-    officialSite: string | null;
+    season: number;
+    airstamp: string;
+    nextEpisode: {
+        name: string;
+    } | null;
+    _embedded: {
+        show: {
+            id: number;
+            name: string;
+        }
+    };
 }

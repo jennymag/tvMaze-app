@@ -2,13 +2,7 @@ export const footerLinks = [
     {
         title: "Used API's",
         links: [{
-            title: "TVMaze API", url:"https://www.tvmaze.com/api#show-search"
-        }]
-    },
-    {
-        title: "Contact me",
-        links: [{
-            title: "Linkedin", url:"https://www.tvmaze.com/api#show-search"
+            title: "TVMaze API", url: "https://www.tvmaze.com/api#show-search"
         }]
     }
 ]

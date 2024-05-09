@@ -1,6 +1,6 @@
 import { Favorites } from "@/components";
 
-export default function Details() {
+export default function FavoritesPage() {
   return (
     <main className="overflow-hidden z-1">
       <div className="flex flex-col items-center my-16">
@@ -11,3 +11,4 @@ export default function Details() {
     </main>
   );
 }
+

@@ -1,6 +1,6 @@
 import { ShowDetails } from "@/components";
 
-const SearchDetails = ({ params }: { params: { showId: number } }) => {
+export default function SearchDetailsPage({ params }: { params: { showId: number } }) {
   return (
     <main className="overflow-hidden z-1">
       <div className="my-16">
@@ -10,4 +10,4 @@ const SearchDetails = ({ params }: { params: { showId: number } }) => {
   );
 };
 
-export default SearchDetails;
+

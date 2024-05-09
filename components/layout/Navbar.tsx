@@ -1,6 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
-import CustomButton from "../shared/CustomButton";
 import { navbarLinks } from "@/constants";
 
 const Navbar = () => {

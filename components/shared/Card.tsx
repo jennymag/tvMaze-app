@@ -2,13 +2,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CardProps } from "@/types";
-import { useEffect } from "react";
 
 // Card.tsx
 const Card: React.FC<
   CardProps & { isFavorite: boolean; onToggleFavorite: (id: number) => void }
 > = ({ data, isFavorite, onToggleFavorite }) => {
-
   return (
     <div className="mx-2 w-full  md:w-1/4 lg:w-1/6 mb-4 shadow">
       <button

@@ -12,7 +12,7 @@ const ShowDetails = ({ showId }: { showId: number }) => {
     const fetchShow = async () => {
       const data: Show | null = await fetchTvShowById(showId);
       if (data) {
-        setShow(data); //
+        setShow(data);
       } else {
         setShow(null);
       }
@@ -22,35 +22,35 @@ const ShowDetails = ({ showId }: { showId: number }) => {
   }, [showId]);
 
   return (
-    <main>
+    <>
       {show ? (
         <div className="flex flex-row mx-40 my-20">
-           <div className="mx-6">
+          <div className="mx-6">
             <Image
               alt="TV Show Cover"
               src={show.image.original}
               width={900}
               height={1800}
+              priority
             />
           </div>
           <div className="w-full my-10">
-            <h3 className="font-bold">Name:</h3>
+            <h2 className="font-bold">Name:</h2>
             <p>{show.name} </p>
-            <h3 className="font-bold">Summary:</h3>
-            <p>{show.summary?.replace(/(<([^>]+)>)/gi, '')} </p>
-            <h3 className="font-bold">Genres:</h3>
+            <h2 className="font-bold">Summary:</h2>
+            <p>{show.summary?.replace(/(<([^>]+)>)/gi, "")} </p>
+            <h2 className="font-bold">Genres:</h2>
             <p>{show.genres} </p>
-            <h3 className="font-bold">Rating:</h3>
+            <h2 className="font-bold">Rating:</h2>
             <p>{show.rating.average} </p>
-            <h3 className="font-bold">Language:</h3>
+            <h2 className="font-bold">Language:</h2>
             <p>{show.language} </p>
-            <h3 className="font-bold">Premiered:</h3>
+            <h2 className="font-bold">Premiered:</h2>
             <p>{show.premiered} </p>
           </div>
-         
         </div>
       ) : null}
-    </main>
+    </>
   );
 };
 

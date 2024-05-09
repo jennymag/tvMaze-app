@@ -28,7 +28,7 @@ export const useFavorites = () => {
             if (isFavorite) {
                 return prevFavoritesList.filter(favorite => favorite.show.id !== id);
             } else {
-                return [...prevFavoritesList, addShow]; 
+                return [...prevFavoritesList, addShow];
             }
         });
     };

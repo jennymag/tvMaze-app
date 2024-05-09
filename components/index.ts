@@ -6,6 +6,7 @@ import Card from "./shared/Card";
 import ShowDetails from "./search/ShowDetails";
 import SearchBar from "./shared/SearchBar"
 import Favorites from "./favorites/Favorites";
+import Upcoming from "./upcoming/Upcoming";
 
 export {
     CustomButton,
@@ -15,6 +16,6 @@ export {
     Card,
     ShowDetails,
     SearchBar,
-    Favorites
-
+    Favorites,
+    Upcoming
 }

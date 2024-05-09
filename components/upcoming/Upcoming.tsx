@@ -38,7 +38,7 @@ const Upcoming = () => {
 
   return (
     <div className="flex flex-wrap flex-col justify-center mx-16 my-8">
-      {upcomingFavorites.map((episode) => (
+      {upcomingFavorites.length > 0 ? upcomingFavorites.map((episode) => (
         <Link  href={`/${episode._embedded.show.id}`} key={episode.id}>
         <div className="my-2 border py-6 px-16 shadow" >
           <h2 className="text-lg font-bold">{episode._embedded.show.name}</h2>
@@ -46,7 +46,7 @@ const Upcoming = () => {
           <p>Airing on{convertDateString(episode.airstamp)}</p>
         </div>
         </Link>
-      ))}
+      )) : <p>There is no upcoming episodes of your favorite shows</p>}
     </div>
   );
 };
